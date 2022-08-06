@@ -7,8 +7,8 @@ import { Movie } from '../models/movie';
 export class MovieFilterPipe implements PipeTransform {
   transform(movies: Movie[], filterText: string): Movie[] {
     filterText = filterText.toLowerCase();
-    console.log('filter Text', filterText);
-    console.log('Movies', movies);
+    // console.log('filter Text', filterText);
+    // console.log('Movies', movies);
 
     return filterText
       ? movies.filter(
