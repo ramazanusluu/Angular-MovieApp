@@ -1,0 +1,21 @@
+import { Pipe, PipeTransform } from '@angular/core';
+import { Movie } from '../models/movie';
+
+@Pipe({
+  name: 'movieFilter',
+})
+export class MovieFilterPipe implements PipeTransform {
+  transform(movies: Movie[], filterText: string): Movie[] {
+    filterText = filterText.toLowerCase();
+    console.log('filter Text', filterText);
+    console.log('Movies', movies);
+
+    return filterText
+      ? movies.filter(
+          (m: Movie) =>
+            m.title.toLowerCase().indexOf(filterText) !== -1 ||
+            m.description.toLowerCase().indexOf(filterText) !== -1
+        )
+      : movies;
+  }
+}
