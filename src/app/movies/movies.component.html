@@ -1,26 +1,87 @@
-<div class="card mb-3" *ngFor="let item of movies">
-  <div class="row g-0">
-    <div class="col-md-3">
-      <img
-        src="/assets/img/{{ item.imageUrl }}"
-        class="img-fluid rounded-start"
-        alt="..."
-      />
-    </div>
-    <div class="col-md-9">
-      <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-        <p class="card-text">
-          {{ item.description }}
-        </p>
-        <button class="btn btn-sm btn-outline-primary">Details</button>
+<div *ngIf="movies.length > 0; else no_movies">
+  <h1>{{ title }}</h1>
+
+  <div class="alert alert-success" *ngIf="movies.length > 0">
+    {{ movies.length }} Film bulundu
+  </div>
+
+  <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
+  <ng-template [ngTemplateOutlet]="movieList2"></ng-template>
+  <ng-template
+    [ngTemplateOutlet]="movieList3"
+    [ngTemplateOutletContext]="{ movies: movieRepository.getMovies() }"
+  ></ng-template>
+</div>
+<ng-template #no_movies>
+  <div class="alert alert-warning">Film Bulunamadı.</div>
+</ng-template>
+
+<ng-template #movieList1>
+  <div class="card mb-3" *ngFor="let item of movies">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img
+          src="/assets/img/{{ item.imageUrl }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">
+            {{ item.description }}
+          </p>
+          <button class="btn btn-sm btn-outline-primary">Details</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- <app-movie *ngFor="let item of movies"></app-movie> -->
-<!-- <ul>
-  <li *ngFor="let item of movies">
-    {{ item }}
-  </li>
-</ul> -->
+</ng-template>
+
+<ng-template #movieList2>
+  <div class="card mb-3" *ngFor="let item of movies">
+    <div class="row g-0">
+      <div class="col-md-2">
+        <img
+          src="/assets/img/{{ item.imageUrl }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">
+            {{ item.description }}
+          </p>
+          <button class="btn btn-sm btn-outline-primary">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #movieList3 let-popularFilmler="movies">
+  <h2>Populer Filmler</h2>
+  <div class="card mb-3" *ngFor="let item of popularFilmler">
+    <div class="row g-0">
+      <div class="col-md-2">
+        <img
+          src="/assets/img/{{ item.imageUrl }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">
+            {{ item.description }}
+          </p>
+          <button class="btn btn-sm btn-outline-primary">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

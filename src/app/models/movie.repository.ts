@@ -41,6 +41,6 @@ export class MovieRepository {
     return this.movies;
   }
   getMovieById(id: number): Movie {
-    return this.movies.find(i => i.id == id)
+    return this.movies.find((i) => i.id == id);
   }
 }

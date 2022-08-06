@@ -9,6 +9,7 @@ import { MovieRepository } from '../models/movie.repository';
 })
 export class MoviesComponent implements OnInit {
   //  movies = ['film 1', 'film 2', 'film 3', 'film 4'];
+  title = 'Film Listesi';
   movies: Movie[];
   movieRepository: MovieRepository;
   constructor() {
