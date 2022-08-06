@@ -11,6 +11,7 @@ export class MovieRepository {
         description: 'Film 1 açıklama',
         imageUrl: '1.jpeg',
         isPopular: false,
+        datePublished: new Date(1990, 10, 10),
       },
       {
         id: 2,
@@ -18,6 +19,7 @@ export class MovieRepository {
         description: 'Film 2 açıklama',
         imageUrl: '2.jpeg',
         isPopular: true,
+        datePublished: new Date(1990, 10, 10),
       },
       {
         id: 3,
@@ -25,6 +27,7 @@ export class MovieRepository {
         description: 'Film 3 açıklama',
         imageUrl: '3.jpeg',
         isPopular: false,
+        datePublished: new Date(1990, 10, 10),
       },
       {
         id: 4,
@@ -32,6 +35,7 @@ export class MovieRepository {
         description: 'Film 4 açıklama',
         imageUrl: '4.jpeg',
         isPopular: true,
+        datePublished: new Date(1990, 10, 10),
       },
       {
         id: 5,
@@ -39,6 +43,7 @@ export class MovieRepository {
         description: 'Film 5 açıklama',
         imageUrl: '5.jpeg',
         isPopular: true,
+        datePublished: new Date(1990, 10, 10),
       },
     ];
   }

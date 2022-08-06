@@ -5,10 +5,10 @@
     {{ movies.length }} Film bulundu
   </div>
 
-  <ng-template
+  <!-- <ng-template
     [ngTemplateOutlet]="movieList2"
     [ngTemplateOutletContext]="{ movies: popularMovies }"
-  ></ng-template>
+  ></ng-template> -->
   <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
 </div>
 <ng-template #no_movies>
@@ -27,9 +27,12 @@
       </div>
       <div class="col-md-9">
         <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
+          <h5 class="card-title">{{ item.title | titlecase }}</h5>
           <p class="card-text">
             {{ item.description }}
+          </p>
+          <p class="card-text">
+            {{ item.datePublished | date: "dd/MM/y" }}
           </p>
           <button class="btn btn-sm btn-outline-primary">Details</button>
         </div>
@@ -38,7 +41,7 @@
   </div>
 </ng-template>
 
-<ng-template #movieList2 let-filmler="movies">
+<!-- <ng-template #movieList2 let-filmler="movies">
   <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
     <div class="col" *ngFor="let item of filmler">
       <div class="card h-100">
@@ -54,28 +57,45 @@
       </div>
     </div>
   </div>
-</ng-template>
+</ng-template> -->
 
-<ng-template #movieList3 let-popularFilmler="movies">
-  <h2>Populer Filmler</h2>
-  <div class="card mb-3" *ngFor="let item of popularFilmler">
-    <div class="row g-0">
-      <div class="col-md-2">
-        <img
-          src="/assets/img/{{ item.imageUrl }}"
-          class="img-fluid rounded-start"
-          alt="..."
-        />
-      </div>
-      <div class="col-md-10">
-        <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
-          <p class="card-text">
-            {{ item.description }}
-          </p>
-          <button class="btn btn-sm btn-outline-primary">Details</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-template>
+<h4>lower-upper-title pipe</h4>
+<p>{{ "Samsung S20" }}</p>
+<p>{{ "Samsung S20" | lowercase }}</p>
+<p>{{ "Samsung S20" | uppercase }}</p>
+<p>{{ "Samsung S20" | titlecase }}</p>
+
+<br />
+<br />
+
+<h4>Date Pipe</h4>
+<p>{{ today }}</p>
+<p>{{ today | date }}</p>
+<p>{{ today | date: "fullDate" }}</p>
+<p>{{ today | date: "medium" }}</p>
+<p>{{ today | date: "shortTime" }}</p>
+<p>{{ today | date: "h:mm:ss" }}</p>
+
+<br />
+<br />
+
+<h4>Decial Pipe</h4>
+<p>{{ 2.23456343 | number }}</p>
+<p>{{ 2.23456343 | number: "1.0-3" }}</p>
+<p>{{ 2.23456343 | number: "4.1-7" }}</p>
+
+<br />
+<br />
+
+<h4>Currency pipe</h4>
+<p>{{ 395 | currency }}</p>
+<p>{{ 395 | currency: "EUR" }}</p>
+<p>{{ 395 | currency: "TRY" }}</p>
+
+<br />
+<br />
+<h4>Percent Pipe</h4>
+<p>{{ 0.259 | percent }}</p>
+<p>{{ 0.0259 | percent }}</p>
+<p>{{ 1.26 | percent: "2.2-4" }}</p>
+<p>{{ 3 / 4 | percent: "0.2-4" }}</p>
