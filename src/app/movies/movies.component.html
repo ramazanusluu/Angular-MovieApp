@@ -47,7 +47,10 @@
           <p class="card-text">
             {{ item.datePublished | date: "dd/MM/y" }}
           </p>
-          <button class="btn btn-sm btn-outline-primary">Details</button>
+          <div>
+            <button class="btn btn-sm btn-outline-primary me-1">Details</button>
+            <button (click)="addToList($event, item)" class="btn btn-sm btn-primary">Listeye Ekle</button>
+          </div>
         </div>
       </div>
     </div>

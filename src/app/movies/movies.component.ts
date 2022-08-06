@@ -34,4 +34,18 @@ export class MoviesComponent implements OnInit {
         )
       : this.movies;
   }
+
+  addToList($event: any, movie: Movie) {
+    // console.log('Button Click', movie.title);
+    // console.log('Event', $event.target.classList);
+    if ($event.target.classList.contains('btn-primary')) {
+      $event.target.innerText = 'Listeden Çıkar';
+      $event.target.classList.remove('btn-primary');
+      $event.target.classList.add('btn-danger');
+    } else {
+      $event.target.innerText = 'Listeye Ekle';
+      $event.target.classList.remove('btn-danger');
+      $event.target.classList.add('btn-primary');
+    }
+  }
 }

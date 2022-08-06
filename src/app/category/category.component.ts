@@ -11,10 +11,24 @@ export class CategoryComponent implements OnInit {
   // categories = ['Macera', 'Romantik', 'Bilim Kurgu', 'Komedi'];
   categories: Category[];
   categoryRepository: CategoryRepository;
+  selectedCategory: Category = null;
   constructor() {
     this.categoryRepository = new CategoryRepository();
     this.categories = this.categoryRepository.getCategories();
   }
 
   ngOnInit(): void {}
+
+  displayAll = true;
+
+  selectCategory(item?: Category) {
+    if (item) {
+      this.selectedCategory = item;
+      this.displayAll = false;
+    } else {
+      this.selectedCategory = null;
+      this.displayAll = true;
+    }
+    // console.log('selectedCateory', this.selectedCategory);
+  }
 }
