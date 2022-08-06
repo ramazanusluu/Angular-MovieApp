@@ -29,7 +29,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title | titlecase }}</h5>
           <p class="card-text">
-            {{ item.description }}
+            {{ item.description | summary: 30 }}
           </p>
           <p class="card-text">
             {{ item.datePublished | date: "dd/MM/y" }}
@@ -59,43 +59,45 @@
   </div>
 </ng-template> -->
 
-<h4>lower-upper-title pipe</h4>
-<p>{{ "Samsung S20" }}</p>
-<p>{{ "Samsung S20" | lowercase }}</p>
-<p>{{ "Samsung S20" | uppercase }}</p>
-<p>{{ "Samsung S20" | titlecase }}</p>
+<!-- <div>
+  <h4>lower-upper-title pipe</h4>
+  <p>{{ "Samsung S20" }}</p>
+  <p>{{ "Samsung S20" | lowercase }}</p>
+  <p>{{ "Samsung S20" | uppercase }}</p>
+  <p>{{ "Samsung S20" | titlecase }}</p>
 
-<br />
-<br />
+  <br />
+  <br />
 
-<h4>Date Pipe</h4>
-<p>{{ today }}</p>
-<p>{{ today | date }}</p>
-<p>{{ today | date: "fullDate" }}</p>
-<p>{{ today | date: "medium" }}</p>
-<p>{{ today | date: "shortTime" }}</p>
-<p>{{ today | date: "h:mm:ss" }}</p>
+  <h4>Date Pipe</h4>
+  <p>{{ today }}</p>
+  <p>{{ today | date }}</p>
+  <p>{{ today | date: "fullDate" }}</p>
+  <p>{{ today | date: "medium" }}</p>
+  <p>{{ today | date: "shortTime" }}</p>
+  <p>{{ today | date: "h:mm:ss" }}</p>
 
-<br />
-<br />
+  <br />
+  <br />
 
-<h4>Decial Pipe</h4>
-<p>{{ 2.23456343 | number }}</p>
-<p>{{ 2.23456343 | number: "1.0-3" }}</p>
-<p>{{ 2.23456343 | number: "4.1-7" }}</p>
+  <h4>Decial Pipe</h4>
+  <p>{{ 2.23456343 | number }}</p>
+  <p>{{ 2.23456343 | number: "1.0-3" }}</p>
+  <p>{{ 2.23456343 | number: "4.1-7" }}</p>
 
-<br />
-<br />
+  <br />
+  <br />
 
-<h4>Currency pipe</h4>
-<p>{{ 395 | currency }}</p>
-<p>{{ 395 | currency: "EUR" }}</p>
-<p>{{ 395 | currency: "TRY" }}</p>
+  <h4>Currency pipe</h4>
+  <p>{{ 395 | currency }}</p>
+  <p>{{ 395 | currency: "EUR" }}</p>
+  <p>{{ 395 | currency: "TRY" }}</p>
 
-<br />
-<br />
-<h4>Percent Pipe</h4>
-<p>{{ 0.259 | percent }}</p>
-<p>{{ 0.0259 | percent }}</p>
-<p>{{ 1.26 | percent: "2.2-4" }}</p>
-<p>{{ 3 / 4 | percent: "0.2-4" }}</p>
+  <br />
+  <br />
+  <h4>Percent Pipe</h4>
+  <p>{{ 0.259 | percent }}</p>
+  <p>{{ 0.0259 | percent }}</p>
+  <p>{{ 1.26 | percent: "2.2-4" }}</p>
+  <p>{{ 3 / 4 | percent: "0.2-4" }}</p>
+</div> -->

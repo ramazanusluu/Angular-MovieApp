@@ -8,7 +8,8 @@ export class MovieRepository {
       {
         id: 1,
         title: 'film 1',
-        description: 'Film 1 açıklama',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.',
         imageUrl: '1.jpeg',
         isPopular: false,
         datePublished: new Date(1990, 10, 10),
@@ -16,7 +17,8 @@ export class MovieRepository {
       {
         id: 2,
         title: 'film 2',
-        description: 'Film 2 açıklama',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.',
         imageUrl: '2.jpeg',
         isPopular: true,
         datePublished: new Date(1990, 10, 10),
@@ -24,7 +26,8 @@ export class MovieRepository {
       {
         id: 3,
         title: 'film 3',
-        description: 'Film 3 açıklama',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.',
         imageUrl: '3.jpeg',
         isPopular: false,
         datePublished: new Date(1990, 10, 10),
