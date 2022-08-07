@@ -41,6 +41,15 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
       "imageUrl": "1.jpeg",
       "categoryId": 4
+    },
+    {
+      "id": 7,
+      "title": "test",
+      "description": "test description",
+      "imageUrl": "4.jpeg",
+      "isPopular": false,
+      "datePublished": 1659904647808,
+      "categoryId": "2"
     }
   ],
   "categories": [
