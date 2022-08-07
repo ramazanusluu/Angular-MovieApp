@@ -41,23 +41,23 @@
   "categories": [
     {
       "id": 1,
-      "title": "Macera"
+      "name": "Macera"
     },
     {
       "id": 2,
-      "title": "Romantik"
+      "name": "Romantik"
     },
     {
       "id": 3,
-      "title": "Komedi"
+      "name": "Komedi"
     },
     {
       "id": 4,
-      "title": "Dram"
+      "name": "Dram"
     },
     {
-      "id": 1,
-      "title": "Savaş"
+      "id": 6,
+      "name": "Savaş"
     }
   ]
 }
