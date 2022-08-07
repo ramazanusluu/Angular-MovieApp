@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../models/movie';
 import { MovieRepository } from '../models/movie.repository';
@@ -11,20 +12,26 @@ import { AlertifyService } from '../services/alertify.service';
 export class MoviesComponent implements OnInit {
   //  movies = ['film 1', 'film 2', 'film 3', 'film 4'];
   title = 'Film Listesi';
-  movies: Movie[];
-  filteredMovies: Movie[];
-  // popularMovies: Movie[];
-  movieRepository: MovieRepository;
-  today = new Date();
-  filterText: string = '';
-  constructor(private alertify: AlertifyService) {
-    this.movieRepository = new MovieRepository();
-    this.movies = this.movieRepository.getMovies();
-    // this.popularMovies = this.movieRepository.getPopularMovies();
-    this.filteredMovies = this.movies;
-  }
+  movies: Movie[] = [];
+  filteredMovies: Movie[] = [];
 
-  ngOnInit(): void {}
+  filterText: string = '';
+  // Constructor component oluşturulduğunda çalışır
+  constructor(private alertify: AlertifyService, private http: HttpClient) {}
+  // Component oluşturuluduktan çağrılmadan hemen önce çalıştırılır
+  ngOnInit(): void {
+    this.http.get<Movie[]>('http://localhost:3000/movies').subscribe((data) => {
+      this.movies = data;
+      this.filteredMovies = this.movies;
+      console.log(this.movies);
+      console.log(this.filteredMovies);
+    });
+    this.http
+      .get('https://jsonplaceholder.typicode.com/users')
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
 
   onInputChange() {
     this.filteredMovies = this.filterText
