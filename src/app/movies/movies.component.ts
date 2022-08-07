@@ -14,8 +14,8 @@ export class MoviesComponent implements OnInit {
   title = 'Film Listesi';
   movies: Movie[] = [];
   filteredMovies: Movie[] = [];
-
   filterText: string = '';
+  error: any;
   // Constructor component oluşturulduğunda çalışır
   constructor(
     private alertify: AlertifyService,
@@ -23,12 +23,16 @@ export class MoviesComponent implements OnInit {
   ) {}
   // Component oluşturuluduktan çağrılmadan hemen önce çalıştırılır
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe((data) => {
-      this.movies = data;
-      this.filteredMovies = this.movies;
-      console.log(this.movies);
-      console.log(this.filteredMovies);
-    });
+    this.movieService.getMovies().subscribe(
+      (data) => {
+        this.movies = data;
+        this.filteredMovies = this.movies;
+      },
+      (error) => {
+        this.error = error;
+        console.log(this.error);
+      }
+    );
   }
 
   onInputChange() {
