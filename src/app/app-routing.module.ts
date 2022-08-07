@@ -13,6 +13,10 @@ const routes: Routes = [
     redirectTo: 'movies',
     pathMatch: 'full',
   },
+  {
+    path: 'movies/category/:categoryId',
+    component: MoviesComponent,
+  },
 ];
 
 @NgModule({

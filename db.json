@@ -5,37 +5,42 @@
       "title": "film 1",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
       "imageUrl": "1.jpeg",
-      " isPopular": 0
+      "categoryId": 1
     },
     {
       "id": 2,
       "title": "film 2",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
-      "imageUrl": "2.jpeg"
+      "imageUrl": "2.jpeg",
+      "categoryId": 2
     },
     {
       "id": 3,
       "title": "film 3",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
-      "imageUrl": "3.jpeg"
+      "imageUrl": "3.jpeg",
+      "categoryId": 3
     },
     {
       "id": 4,
       "title": "film 4",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
-      "imageUrl": "4.jpeg"
+      "imageUrl": "4.jpeg",
+      "categoryId": 3
     },
     {
       "id": 5,
       "title": "film 5",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
-      "imageUrl": "5.jpeg"
+      "imageUrl": "5.jpeg",
+      "categoryId": 4
     },
     {
       "id": 6,
       "title": "film 6",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
-      "imageUrl": "1.jpeg"
+      "imageUrl": "1.jpeg",
+      "categoryId": 4
     }
   ],
   "categories": [
