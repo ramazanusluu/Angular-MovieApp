@@ -19,6 +19,14 @@ export class MovieService {
       catchError(this.handleError)
     );
   }
+
+  getMovieById(movieId: number): Observable<Movie> {
+    return this.http.get<Movie>(this.url + '/' + movieId).pipe(
+      tap((data) => console.log(data)),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Client yada network
