@@ -30,6 +30,12 @@
       "title": "film 5",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
       "imageUrl": "5.jpeg"
+    },
+    {
+      "id": 6,
+      "title": "film 6",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus sunt maiores provident sed debitis dicta amet? Ratione, totam. Illo molestiae autem ad esse blanditiis distinctio similique facilis quisquam architecto.",
+      "imageUrl": "1.jpeg"
     }
   ],
   "categories": [
