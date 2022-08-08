@@ -15,6 +15,7 @@ import { AlertifyService } from './services/alertify.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieCreateComponent } from './movie-create/movie-create.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MovieCreateComponent } from './movie-create/movie-create.component';
     SummaryPipe,
     MovieFilterPipe,
     MovieCreateComponent,
+    CategoryCreateComponent,
   ],
   imports: [
     //module
