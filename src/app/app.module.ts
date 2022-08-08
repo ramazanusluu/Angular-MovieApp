@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieCreateComponent } from './movie-create/movie-create.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
     MovieFilterPipe,
     MovieCreateComponent,
     CategoryCreateComponent,
+    AuthComponent,
   ],
   imports: [
     //module

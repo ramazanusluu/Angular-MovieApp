@@ -1,0 +1,36 @@
+<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+  <div class="mb-3">
+    <label for="email" class="form-label">E-mail</label>
+    <input
+      type="email"
+      ngModel
+      name="email"
+      id="email"
+      class="form-control"
+      required
+      email
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      ngModel
+      name="password"
+      id="password"
+      class="form-control"
+      required
+      minlength="5"
+    />
+  </div>
+  <button
+    [disabled]="authForm.invalid"
+    type="submit"
+    class="btn btn-primary"
+  >
+    {{ isLoginMode ? "Login" : "Register" }}
+  </button>
+  <button class="btn btn-danger ms-2" (click)="onToggleMode()">
+    Toggle to {{ isLoginMode ? "Register" : "Login" }}
+  </button>
+</form>
