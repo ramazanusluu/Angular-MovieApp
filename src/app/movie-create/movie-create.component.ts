@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Category } from '../models/category';
 import { AlertifyService } from '../services/alertify.service';
@@ -32,11 +32,15 @@ export class MovieCreateComponent implements OnInit {
   }
 
   movieForm = new FormGroup({
-    title: new FormControl('film adı'),
-    description: new FormControl('açıklama'),
-    imageUrl: new FormControl('1.jpeg'),
-    categoryId: new FormControl('2'),
+    title: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    description: new FormControl('', [Validators.required]),
+    imageUrl: new FormControl('', [Validators.required]),
+    categoryId: new FormControl('', [Validators.required]),
   });
+
+  get title() {
+    return this.movieForm.get('title');
+  }
 
   clearForm() {
     this.movieForm.patchValue({
