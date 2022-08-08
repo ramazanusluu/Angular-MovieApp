@@ -3,32 +3,35 @@
   <!-- Bilinmeyen bir hata oluştu. -->
 </div>
 
-<div *ngIf="movies.length > 0; else no_movies">
-  <h1>{{ title }}</h1>
+<div *ngIf="!loading">
+  <div *ngIf="movies.length > 0; else no_movies">
+    <h1>{{ title }}</h1>
 
-  <div class="alert alert-success" *ngIf="movies.length > 0">
-    {{ filteredMovies.length }} Film bulundu
-  </div>
+    <div class="alert alert-success" *ngIf="movies.length > 0">
+      {{ filteredMovies.length }} Film bulundu
+    </div>
 
-  <div class="mb-3">
-    <input
-      [(ngModel)]="filterText"
-      type="text"
-      class="form-control"
-      placeholder="Search..."
-      (ngModelChange)="onInputChange()"
-    />
-    <small class="text-muted" *ngIf="filterText"
-      >Aradığınız kelime: {{ filterText }}</small
-    >
-  </div>
+    <div class="mb-3">
+      <input
+        [(ngModel)]="filterText"
+        type="text"
+        class="form-control"
+        placeholder="Search..."
+        (ngModelChange)="onInputChange()"
+      />
+      <small class="text-muted" *ngIf="filterText"
+        >Aradığınız kelime: {{ filterText }}</small
+      >
+    </div>
 
-  <!-- <ng-template
+    <!-- <ng-template
     [ngTemplateOutlet]="movieList2"
     [ngTemplateOutletContext]="{ movies: popularMovies }"
   ></ng-template> -->
-  <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
+    <ng-template [ngTemplateOutlet]="movieList1"></ng-template>
+  </div>
 </div>
+
 <ng-template #no_movies>
   <div class="alert alert-warning">Film Bulunamadı.</div>
 </ng-template>
@@ -71,6 +74,10 @@
     </div>
   </div>
 </ng-template>
+
+<div *ngIf="loading" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
 
 <!-- Filtreleme işleminin Pipes kullanılarak yapılmasıu -->
 <!-- <ng-template #movieList1>

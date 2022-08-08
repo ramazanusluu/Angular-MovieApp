@@ -17,6 +17,8 @@ export class MoviesComponent implements OnInit {
   filteredMovies: Movie[] = [];
   filterText: string = '';
   error: any;
+  loading: boolean = false;
+
   // Constructor component oluşturulduğunda çalışır
   constructor(
     private alertify: AlertifyService,
@@ -26,13 +28,16 @@ export class MoviesComponent implements OnInit {
   // Component oluşturuluduktan çağrılmadan hemen önce çalıştırılır
   ngOnInit(): void {
     this.activetedRoute.params.subscribe((params) => {
+      this.loading = true;
       this.movieService.getMovies(params['categoryId']).subscribe(
         (data) => {
           this.movies = data;
           this.filteredMovies = this.movies;
+          this.loading = false;
         },
         (error) => {
           this.error = error;
+          this.loading = false;
         }
       );
     });
