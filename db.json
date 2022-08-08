@@ -50,6 +50,15 @@
       "isPopular": false,
       "datePublished": 1659904647808,
       "categoryId": "2"
+    },
+    {
+      "id": 8,
+      "title": "Başlık",
+      "description": "Başlık 1",
+      "imageUrl": "1.jpeg",
+      "isPopular": false,
+      "datePublished": 1659934885217,
+      "categoryId": "1"
     }
   ],
   "categories": [

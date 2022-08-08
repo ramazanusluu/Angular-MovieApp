@@ -1,5 +1,5 @@
-<h1>Creaye Movie</h1>
-<form #form="ngForm" (ngSubmit)="createMovie(form)">
+<h1>Create Movie</h1>
+<form #form="ngForm" (ngSubmit)="createMovie()">
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
     <input
@@ -12,36 +12,66 @@
       #title="ngModel"
       (change)="log(title)"
     />
+    <div class="alert alert-warning" *ngIf="title.invalid && title.touched">
+      <p *ngIf="title.errors.required">Gerekli Alan</p>
+      <p *ngIf="title.errors.minlength">Miimum 5 Karakter Girmelisniz</p>
+    </div>
   </div>
   <div class="mb-3">
     <label for="description" class="form-label">Description</label>
     <textarea
+      required
       class="form-control"
       name="description"
       [(ngModel)]="model.description"
+      #description="ngModel"
     ></textarea>
+    <div
+      class="alert alert-warning"
+      *ngIf="description.invalid && description.touched"
+    >
+      Gerekli alan
+    </div>
   </div>
   <div class="mb-3">
     <label for="imageUrl" class="form-label">imageUrl</label>
     <input
+      required
       type="text"
       [(ngModel)]="model.imageUrl"
       name="imageUrl"
       class="form-control"
+      #imageUrl="ngModel"
     />
+    <div
+      class="alert alert-warning"
+      *ngIf="imageUrl.invalid && imageUrl.touched"
+    >
+      Gerekli alan
+    </div>
   </div>
   <div class="mb-3">
     <label for="categoryId" class="form-label">category</label>
     <select
+      required
       [(ngModel)]="model.categoryId"
       name="categoryId"
       class="form-select"
+      #categoryId="ngModel"
     >
-      <option value="-1">Seçiniz</option>
+      <option value="">Seçiniz</option>
       <option *ngFor="let item of categories" [value]="item.id">
         {{ item.name }}
       </option>
     </select>
+    <div
+      class="alert alert-warning"
+      *ngIf="categoryId.invalid && categoryId.touched"
+    >
+      Gerekli alan
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Create</button>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
+    Create
+  </button>
 </form>
