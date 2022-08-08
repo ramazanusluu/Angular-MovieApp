@@ -72,7 +72,7 @@ export class MovieCreateComponent implements OnInit {
     console.log(movie);
     this.movieService.createMovie(movie).subscribe((data) => {
       // this.router.navigate(['/movies']);
-      this.router.navigate(['/movies', data.id]);
+      this.router.navigate(['/movies']);
     });
   }
   log(value: any) {

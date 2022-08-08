@@ -11,6 +11,8 @@ import { Movie } from '../models/movie';
 @Injectable()
 export class MovieService {
   url = 'http://localhost:3000/movies';
+  url_firebase = 'https://angular-movie-app-3580b-default-rtdb.firebaseio.com';
+
   constructor(private http: HttpClient) {}
   getMovies(categoryId: number): Observable<Movie[]> {
     let newUrl = this.url;
@@ -38,7 +40,7 @@ export class MovieService {
         Authorization: 'Token',
       }),
     };
-    return this.http.post<Movie>(this.url, movie, httpOptions).pipe(
+    return this.http.post<Movie>(this.url_firebase + "/movies.json", movie, httpOptions).pipe(
       tap((data) => console.log(data)),
       catchError(this.handleError)
     );
