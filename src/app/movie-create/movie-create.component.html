@@ -9,10 +9,7 @@
       formControlName="title"
     />
     value: {{ movieForm.value.title }}
-    <div
-      class="alert alert-warning"
-      *ngIf="movieForm.get('title').invalid && movieForm.get('title').touched"
-    >
+    <div class="alert alert-warning" *ngIf="title.invalid && title.touched">
       <p *ngIf="title.errors.required">Gerekli Alan</p>
       <p *ngIf="title.errors.minlength">Minimum 5 Karakter Girmelisniz</p>
     </div>
@@ -33,6 +30,13 @@
       class="form-control"
       formControlName="imageUrl"
     />
+    <div
+      class="alert alert-warning"
+      *ngIf="imageUrl.invalid && imageUrl.touched"
+    >
+      <p *ngIf="imageUrl.errors.required">Gerekli Alan</p>
+      <p *ngIf="imageUrl.errors.wrongExtentions">Hatalı Resim Uzantısı</p>
+    </div>
   </div>
   <div class="mb-3">
     <label for="categoryId" class="form-label">category</label>
@@ -43,6 +47,8 @@
       </option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Create</button>
+  <button [disabled]="movieForm.invalid" type="submit" class="btn btn-primary">
+    Create
+  </button>
   <button class="btn btn-warning" (click)="clearForm()">Clear</button>
 </form>
