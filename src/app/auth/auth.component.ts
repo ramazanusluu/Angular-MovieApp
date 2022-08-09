@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -12,6 +13,7 @@ import { AuthService } from '../services/auth.service';
 export class AuthComponent implements OnInit {
   isLoginMode: boolean = true;
   loading: boolean = false;
+  error: string;
 
   constructor(private authService: AuthService) {}
 
@@ -42,7 +44,8 @@ export class AuthComponent implements OnInit {
         this.loading = false;
       },
       (err) => {
-        console.log(err);
+        this.error = err;
+      
         this.loading = false;
       }
     );
