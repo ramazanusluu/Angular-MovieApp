@@ -52,4 +52,10 @@ export class AuthComponent implements OnInit {
     );
     form.reset();
   }
+  closeDialog($event: any) {
+    console.log($event);
+    console.log($event);
+
+    this.error = null;
+  }
 }
