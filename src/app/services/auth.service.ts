@@ -43,14 +43,29 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<AuthResponse>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
-        this.api_key,
-      {
-        email: email,
-        password: password,
-        returnSecureToken: true,
-      }
-    );
+    return this.http
+      .post<AuthResponse>(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
+          this.api_key,
+        {
+          email: email,
+          password: password,
+          returnSecureToken: true,
+        }
+      )
+      .pipe(
+        tap((response) => {
+          const expirationDate = new Date(
+            new Date().getTime() + +response.expiresIn * 1000
+          );
+          const user = new User(
+            response.email,
+            response.localId,
+            response.idToken,
+            expirationDate
+          );
+          this.user.next(user);
+        })
+      );
   }
 }
