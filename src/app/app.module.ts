@@ -20,6 +20,7 @@ import { AuthComponent } from './auth/auth.component';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { MoviesHomeComponent } from './movies/movies-home/movies-home.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MoviesHomeComponent } from './movies/movies-home/movies-home.component'
     CategoryCreateComponent,
     AuthComponent,
     MoviesHomeComponent,
+    AlertComponent,
   ],
   imports: [
     //module
