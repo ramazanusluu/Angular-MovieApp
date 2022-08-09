@@ -8,7 +8,7 @@
   >
   <a
     *ngFor="let item of categories"
-    routerLink="movies/category/{{ item.id }}"
+    routerLink="/movies/category/{{ item.id }}"
     [class.active]="!displayAll && selectedCategory.id == item.id"
     (click)="selectCategory(item)"
     class="list-group-item list-group-item-action"
