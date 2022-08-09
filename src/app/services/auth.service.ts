@@ -29,16 +29,12 @@ export class AuthService {
       )
       .pipe(
         tap((response) => {
-          const expirationDate = new Date(
-            new Date().getTime() + +response.expiresIn * 1000
-          );
-          const user = new User(
+          this.handleAuthentication(
             response.email,
             response.localId,
             response.idToken,
-            expirationDate
+            +response.expiresIn
           );
-          this.user.next(user);
         })
       );
   }
@@ -56,21 +52,46 @@ export class AuthService {
       )
       .pipe(
         tap((response) => {
-          const expirationDate = new Date(
-            new Date().getTime() + +response.expiresIn * 1000
-          );
-          const user = new User(
+          this.handleAuthentication(
             response.email,
             response.localId,
             response.idToken,
-            expirationDate
+            +response.expiresIn
           );
-          this.user.next(user);
         })
       );
   }
   logout() {
     this.user.next(null);
+    localStorage.removeItem('user');
     this.router.navigate(['/auth']);
+  }
+
+  autoLogin() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      return;
+    }
+    const loadedUser = new User(
+      user.email,
+      user.userId,
+      user._token,
+      new Date(user._tokenExpirationDate)
+    );
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+    }
+  }
+
+  handleAuthentication(
+    email: string,
+    userId: string,
+    token: string,
+    expiresIn: number
+  ) {
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const user = new User(email, userId, token, expirationDate);
+    this.user.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 }
