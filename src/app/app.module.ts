@@ -4,13 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { AlertifyService } from './services/alertify.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { ErrorInterceptor } from './services/error.interceptor';
-import { AuthInterceptor } from './auth/auth.interceptor';
 import { MoviesModule } from './movies/movies.module';
 import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core.module';
 
 @NgModule({
   declarations: [
@@ -25,13 +24,10 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     AppRoutingModule,
     MoviesModule,
-    AuthModule
+    AuthModule,
+    CoreModule,
   ],
-  providers: [
-    AlertifyService,
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ], //services
+  providers: [], //services
   bootstrap: [AppComponent], //Starter Component
 })
 export class AppModule {}

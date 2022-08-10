@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from './movie.model';
-import { AlertifyService } from '../services/alertify.service';
+import { AlertifyService } from '../shared/alertify.service';
 import { AuthService } from '../auth/auth.service';
 import { MovieService } from './movie.service';
 
