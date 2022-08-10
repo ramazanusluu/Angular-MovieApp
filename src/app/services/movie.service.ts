@@ -89,6 +89,22 @@ export class MovieService {
       );
   }
 
+  removeFromList(item: MyList): Observable<MyList> {
+    return this.http
+      .delete<MyList>(
+        this.url_firebase +
+          '/users/' +
+          item.userId +
+          '/list/' +
+          item.movieId +
+          '.json'
+      )
+      .pipe(
+        tap((data) => console.log(data)),
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Client yada network
