@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../models/movie';
 import { AlertifyService } from '../services/alertify.service';
+import { AuthService } from '../services/auth.service';
 import { MovieService } from '../services/movie.service';
 
 @Component({
@@ -18,15 +19,20 @@ export class MoviesComponent implements OnInit {
   filterText: string = '';
   error: any;
   loading: boolean = false;
+  userId: string;
 
   // Constructor component oluşturulduğunda çalışır
   constructor(
     private alertify: AlertifyService,
     private movieService: MovieService,
-    private activetedRoute: ActivatedRoute
+    private activetedRoute: ActivatedRoute,
+    private authService: AuthService
   ) {}
   // Component oluşturuluduktan çağrılmadan hemen önce çalıştırılır
   ngOnInit(): void {
+    this.authService.user.subscribe((user) => {
+      this.userId = user.id;
+    });
     this.activetedRoute.params.subscribe((params) => {
       this.loading = true;
       this.movieService.getMovies(params['categoryId']).subscribe(
@@ -60,7 +66,14 @@ export class MoviesComponent implements OnInit {
       $event.target.innerText = 'Listeden Çıkar';
       $event.target.classList.remove('btn-primary');
       $event.target.classList.add('btn-danger');
-      this.alertify.success(movie.title + 'listene eklendi');
+      this.movieService
+        .addToMyList({
+          userId: this.userId,
+          movieId: movie.id,
+        })
+        .subscribe(() =>
+          this.alertify.success(movie.title + 'listene eklendi')
+        );
     } else {
       $event.target.innerText = 'Listeye Ekle';
       $event.target.classList.remove('btn-danger');
