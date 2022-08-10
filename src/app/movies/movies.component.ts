@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from './movie';
+import { Movie } from './movie.model';
 import { AlertifyService } from '../services/alertify.service';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { MovieService } from './movie.service';
 
 @Component({
@@ -32,26 +32,28 @@ export class MoviesComponent implements OnInit {
   // Component oluşturuluduktan çağrılmadan hemen önce çalıştırılır
   ngOnInit(): void {
     this.authService.user.subscribe((user) => {
-      this.userId = user.id;
+      if (user) {
+        this.userId = user.id;
 
-      this.activetedRoute.params.subscribe((params) => {
-        this.loading = true;
-        this.movieService.getMovies(params['categoryId']).subscribe(
-          (data) => {
-            this.movies = data;
-            this.filteredMovies = this.movies;
-            this.movieService.getList(this.userId).subscribe((data) => {
-              this.movieList = data;
-              console.log(this.movieList);
-            });
-            this.loading = false;
-          },
-          (error) => {
-            this.error = error;
-            this.loading = false;
-          }
-        );
-      });
+        this.activetedRoute.params.subscribe((params) => {
+          this.loading = true;
+          this.movieService.getMovies(params['categoryId']).subscribe(
+            (data) => {
+              this.movies = data;
+              this.filteredMovies = this.movies;
+              this.movieService.getList(this.userId).subscribe((data) => {
+                this.movieList = data;
+                console.log(this.movieList);
+              });
+              this.loading = false;
+            },
+            (error) => {
+              this.error = error;
+              this.loading = false;
+            }
+          );
+        });
+      }
     });
   }
 

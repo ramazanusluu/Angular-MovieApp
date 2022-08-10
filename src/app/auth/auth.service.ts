@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AuthResponse } from '../models/AuthResponse';
-import { User } from '../models/user';
+import { AuthResponse } from './auth-response.model';
+import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root',
