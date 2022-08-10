@@ -7,6 +7,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieFilterPipe } from './movie-filter.pipe';
 import { MovieComponent } from './movie/movie.component';
 import { MoviesHomeComponent } from './movies-home/movies-home.component';
+import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
 import { SummaryPipe } from './summary.pipe';
 
@@ -20,7 +21,13 @@ import { SummaryPipe } from './summary.pipe';
     MovieCreateComponent,
     MoviesHomeComponent,
   ],
-  imports: [RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    RouterModule,
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MoviesRoutingModule,
+  ],
   exports: [
     MoviesComponent,
     MovieComponent,
