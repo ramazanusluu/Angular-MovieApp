@@ -61,11 +61,20 @@
             >
               Details
             </a>
+
             <button
+              *ngIf="!getButtonState(item)"
               (click)="addToList($event, item)"
               class="btn btn-sm btn-primary"
             >
               Listeye Ekle
+            </button>
+            <button
+              *ngIf="getButtonState(item)"
+              (click)="addToList($event, item)"
+              class="btn btn-sm btn-danger"
+            >
+              Listeden Çıkar
             </button>
           </div>
         </div>

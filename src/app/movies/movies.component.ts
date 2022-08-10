@@ -20,6 +20,7 @@ export class MoviesComponent implements OnInit {
   error: any;
   loading: boolean = false;
   userId: string;
+  movieList: string[] = [];
 
   // Constructor component oluşturulduğunda çalışır
   constructor(
@@ -32,20 +33,25 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user.subscribe((user) => {
       this.userId = user.id;
-    });
-    this.activetedRoute.params.subscribe((params) => {
-      this.loading = true;
-      this.movieService.getMovies(params['categoryId']).subscribe(
-        (data) => {
-          this.movies = data;
-          this.filteredMovies = this.movies;
-          this.loading = false;
-        },
-        (error) => {
-          this.error = error;
-          this.loading = false;
-        }
-      );
+
+      this.activetedRoute.params.subscribe((params) => {
+        this.loading = true;
+        this.movieService.getMovies(params['categoryId']).subscribe(
+          (data) => {
+            this.movies = data;
+            this.filteredMovies = this.movies;
+            this.movieService.getList(this.userId).subscribe((data) => {
+              this.movieList = data;
+              console.log(this.movieList);
+            });
+            this.loading = false;
+          },
+          (error) => {
+            this.error = error;
+            this.loading = false;
+          }
+        );
+      });
     });
   }
 
@@ -57,6 +63,10 @@ export class MoviesComponent implements OnInit {
             m.description.indexOf(this.filterText) !== -1
         )
       : this.movies;
+  }
+
+  getButtonState(movie: Movie) {
+    return this.movieList.findIndex((m) => m === movie.id) > -1;
   }
 
   addToList($event: any, movie: Movie) {
