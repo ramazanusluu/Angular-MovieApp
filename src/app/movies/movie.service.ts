@@ -6,8 +6,8 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, delay, map, tap } from 'rxjs/operators';
-import { Movie } from '../models/movie';
-import { MyList } from '../models/myList';
+import { Movie } from './movie';
+import { MyList } from './myList';
 
 @Injectable()
 export class MovieService {
