@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/auth.service';
 
 @Component({
@@ -7,7 +8,10 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    console.log(environment.production);
+    console.log(environment.value);
+  }
   ngOnInit(): void {
     this.authService.autoLogin();
   }
