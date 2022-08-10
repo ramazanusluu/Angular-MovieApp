@@ -108,7 +108,38 @@ Section 14: Angular 12: Publish
 > 81. Environment Variables
 > 82. Firebase Hosting ile Projenin Yayınlanması
 
+#
 
+## Proje Görselleri
+
+Login Sayfasında kullanıcının kayıt ve login işlemini gerçekleştireceği alan yer almaktadır.
+
+![image](https://user-images.githubusercontent.com/98388628/184022589-6045e546-f746-49b7-8e7f-2d5c96acb5ea.png)
+
+Login olan kullanıcı movies sayfasına yönlendirilir.
+* Kullanıcı burada filmleri ve kategorileri görüntüler.
+* Filmler üzeride filtreleme yapabilir.
+* Listeye ekleme işlemini yapabilir.
+* Kategori değiştirdiğinde ilgili kategoriye ait ürünleri listeler.
+* Details Butonuna tıkladığında film detay sayfasına yönlendirilir.
+
+![image](https://user-images.githubusercontent.com/98388628/184023639-d62be9f0-1c81-451e-ab8d-1017d7eb3a5e.png)
+
+
+![image](https://user-images.githubusercontent.com/98388628/184023120-2b2f6cec-6a75-483f-a56c-e2524a4071a1.png)
+
+![image](https://user-images.githubusercontent.com/98388628/184023784-7e76097c-b46a-4eeb-8e07-7537e0374612.png)
+
+![image](https://user-images.githubusercontent.com/98388628/184023854-12911d71-1500-458b-bd0e-480e38d94083.png)
+
+Navbar üzerinde bulunan Create Movie butonu ile film ekleme sayfasına yönlendirilir.
+* Buarada yeni bir film ekleme işlemi gerçkleştirilir.
+
+![image](https://user-images.githubusercontent.com/98388628/184024250-1d97331a-3d28-4056-b01e-44fd207026f5.png)
+
+Login olmuş kullanıcı navbar üzerinde bulunan logout butonuna tıkladığında çıkış işlemini gerçekleştirir.
+
+#
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
 
